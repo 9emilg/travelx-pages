@@ -1,6 +1,5 @@
-# keep LF everywhere: the live-page md5 check compares against index.html byte for byte
+# text files are stored with LF; the HTML pages are kept byte for byte so they can be md5-compared with the live site
 * text=auto eol=lf
-# the pages are stored byte for byte, whatever their line endings
 *.html -text
 *.png binary
 *.jpg binary
