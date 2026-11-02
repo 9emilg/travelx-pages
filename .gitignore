@@ -1,0 +1,13 @@
+# build output - the live zips are attached to the GitHub releases
+dist/
+
+# raw Figma downloads and superseded drafts (not needed to build)
+**/assets/_raw/
+**/assets/_legacy-*/
+FIGMA-DIFF-*.md
+
+__pycache__/
+*.pyc
+node_modules/
+.DS_Store
+Thumbs.db

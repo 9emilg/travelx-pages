@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TravelX Conference — Urban Experiences | Сливен</title>
+<meta name="description" content="TravelX Urban Experiences — форум за развитието на дестинацията като цялостен туристически продукт. 21 ноември 2026, гр. Сливен.">
+<meta name="theme-color" content="#0b4634">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Arial,Helvetica,sans-serif' font-weight='800' font-size='21' letter-spacing='-1'%3E%3Ctspan fill='%23ffffff'%3ET%3C/tspan%3E%3Ctspan fill='%23F58320'%3EX%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="TravelX Conference — Urban Experiences">
+<meta property="og:description" content="Бъдещето на градския туризъм. 21 ноември 2026, гр. Сливен.">
+<meta property="og:locale" content="bg_BG">
+<meta property="og:url" content="https://travelx.bg/sliven/">
+<meta property="og:image" content="https://travelx.bg/sliven/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="canonical" href="https://travelx.bg/sliven/">
+<link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   TravelX Conference — Сливен
+   Single file. No build step. No dependencies except Google Fonts.
+
+   Everything you would ever want to change lives in :root below.
+   Change a token once, it propagates everywhere.
+
+   Imagery comes from the designer's Figma file. Originals live in _src/;
+   `python tools/optimize.py` regenerates the AVIF/WebP files in assets/.
+   Reframe the hero with --hero-focus.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Inter, self-hosted: one variable file per script, weights 400–800 */
+@font-face{
+  font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;
+  src:url("assets/fonts/inter-latin.woff2") format("woff2");
+  unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+@font-face{
+  font-family:"Inter";font-style:normal;font-weight:400 800;font-display:swap;
+  src:url("assets/fonts/inter-cyrillic.woff2") format("woff2");
+  unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;
+}
+/* Arial stretched to Inter's metrics, so the swap to Inter moves nothing */
+@font-face{
+  font-family:"Inter Fallback";src:local("Arial"),local("Helvetica");
+  ascent-override:90.2%;descent-override:22.48%;line-gap-override:0%;size-adjust:107.4%;
+}
+
+:root{
+  /* ── brand ─────────────────────────────────────────────────── */
+  --green-900:#052a1f;
+  --green-800:#0b4634;
+  --green-700:#18815d;   /* the brand green, straight from Figma */
+  --green-600:#1e9b70;
+  --green-500:#2eb083;
+  --green-300:#7fd9b7;
+  --green-100:#d6efe4;
+  --green-050:#eef8f3;
+
+  --navy-900:#04121f;
+  --navy-800:#082245;    /* the brand ink, straight from Figma */
+  --navy-600:#2a4a72;
+  --navy-300:#8ba3bd;
+
+  /* ── surfaces & ink ────────────────────────────────────────── */
+  --paper:#f4f7f6;
+  --white:#ffffff;
+  --ink:var(--navy-800);
+  --ink-soft:#4e6684;
+  --ink-faint:#7d90a8;
+  --ink-inv:#fdfbfc;
+  --ink-inv-soft:rgba(253,251,252,.70);
+  --ink-inv-faint:rgba(253,251,252,.45);
+
+  --grey-100:#eceff1;   /* "Очаква се" speaker tiles */
+  --grey-300:#c5ccd3;
+  --grey-600:#5c6773;   /* 4.9:1 on grey-100 */
+
+  --hair:rgba(8,34,69,.09);
+  --hair-strong:rgba(8,34,69,.14);
+  --hair-inv:rgba(255,255,255,.15);   /* the nav border from Figma */
+  --glass:rgba(255,255,255,.15);      /* the nav fill from Figma  */
+
+  /* ── type ──────────────────────────────────────────────────── */
+  --font:"Inter","Inter Fallback",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+
+  --t-xs:  clamp(.75rem,  .735rem + .07vw, .8125rem);
+  --t-sm:  clamp(.8125rem,.79rem  + .11vw, .875rem);
+  --t-base:clamp(.9375rem,.915rem + .11vw, 1rem);
+  --t-md:  clamp(1rem,    .96rem  + .19vw, 1.125rem);
+  --t-lg:  clamp(1.125rem,1.06rem + .3vw,  1.3125rem);
+  --t-xl:  clamp(1.375rem,1.25rem + .6vw,  1.75rem);
+  --t-2xl: clamp(1.75rem, 1.5rem  + 1.2vw, 2.5rem);
+  --t-3xl: clamp(2.125rem,1.7rem  + 2vw,   3.25rem);
+  --t-4xl: clamp(2.5rem,  1.8rem  + 3.4vw, 4.5rem);
+
+  /* ── space (8pt) ───────────────────────────────────────────── */
+  --s-1:4px;  --s-2:8px;  --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px; --s-10:128px;
+
+  --section-y:clamp(64px,9vw,128px);
+  --container:1200px;
+  --container-nav:1360px;   /* the bar runs wider than the content column */
+  --gutter:clamp(20px,5vw,48px);
+
+  /* ── shape ─────────────────────────────────────────────────── */
+  --r-sm:10px;    /* buttons — from Figma */
+  --r-md:16px;
+  --r-lg:20px;    /* cards — Figma had 15px, nudged for optical balance */
+  --r-xl:28px;
+  --r-pill:999px;
+
+  /* ── elevation: layered, low-opacity, never a single blur ──── */
+  --e-1:0 1px 2px rgba(8,34,69,.05), 0 2px 8px rgba(8,34,69,.04);
+  --e-2:0 2px 4px rgba(8,34,69,.05), 0 8px 24px rgba(8,34,69,.07);
+  --e-3:0 4px 8px rgba(8,34,69,.06), 0 16px 40px rgba(8,34,69,.10);
+  --e-green:0 8px 24px rgba(24,129,93,.24), 0 2px 6px rgba(24,129,93,.16);
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+
+  /* ── hero ──────────────────────────────────────────────────── */
+  /* the designer's own plate (already green-washed), as hero-*.avif */
+  --hero-focus:72% 38%;   /* keeps the statue + old town in frame as it crops */
+}
+
+/* ═══ reset ══════════════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  /* cross-fade in from travelx.bg — the WordPress side opts in via the plugin */
+  @view-transition{navigation:auto}
+}
+body{
+  font-family:var(--font);
+  font-size:var(--t-base);
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--paper);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+  font-feature-settings:"cv05" 1,"ss01" 1;
+}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--green-500);outline-offset:3px;border-radius:4px}
+
+/* ═══ primitives ═════════════════════════════════════════════ */
+.container{width:100%;max-width:var(--container);margin-inline:auto;padding-inline:var(--gutter)}
+.section{padding-block:var(--section-y)}
+.section--dark{background:var(--navy-900);color:var(--ink-inv);position:relative;overflow:hidden}
+.section--dark::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(80% 55% at 12% 0%,  rgba(24,129,93,.30) 0%, transparent 62%),
+    radial-gradient(70% 50% at 92% 100%,rgba(24,129,93,.18) 0%, transparent 60%);
+}
+.section--dark > *{position:relative;z-index:1}
+.section--paper{background:var(--paper)}
+.section--white{background:var(--white)}
+
+/* headings ---------------------------------------------------- */
+.eyebrow{
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--green-700);
+  display:flex;align-items:center;gap:var(--s-3);
+}
+.eyebrow::after{content:"";flex:0 0 40px;height:1px;background:currentColor;opacity:.4}
+.section--dark .eyebrow{color:var(--green-300)}
+
+.h2{
+  font-size:var(--t-3xl);font-weight:700;line-height:1.08;
+  letter-spacing:-.025em;margin-top:var(--s-4);
+  text-wrap:balance;
+}
+.h2 em{font-style:normal;color:var(--green-700)}
+.section--dark .h2 em{color:var(--green-300)}
+
+.lede{
+  font-size:var(--t-md);color:var(--ink-soft);
+  max-width:62ch;margin-top:var(--s-4);line-height:1.7;
+}
+.section--dark .lede{color:var(--ink-inv-soft)}
+
+.section-head{margin-bottom:var(--s-8)}
+.section-head--center{text-align:center;max-width:760px;margin-inline:auto}
+.section-head--center .eyebrow{justify-content:center}
+.section-head--center .eyebrow::before{content:"";flex:0 0 40px;height:1px;background:currentColor;opacity:.4}
+.section-head--center .lede{margin-inline:auto}
+
+/* buttons ----------------------------------------------------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:var(--s-2);
+  padding:13px 24px;border-radius:var(--r-sm);
+  font-size:var(--t-sm);font-weight:600;letter-spacing:.005em;
+  white-space:nowrap;cursor:pointer;
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background-color .2s var(--ease),color .2s var(--ease),border-color .2s var(--ease);
+}
+.btn:active{transform:translateY(1px)}
+.btn--primary{background:var(--green-700);color:#fff;box-shadow:var(--e-green)}
+.btn--primary:hover{background:var(--green-600);transform:translateY(-2px);box-shadow:0 12px 30px rgba(24,129,93,.30),0 3px 8px rgba(24,129,93,.20)}
+.btn--white{background:#fff;color:var(--green-700);box-shadow:var(--e-2)}
+.btn--white:hover{transform:translateY(-2px);box-shadow:var(--e-3)}
+.btn--ghost{border:1px solid var(--hair-inv);color:var(--ink-inv);backdrop-filter:blur(6px);background:rgba(255,255,255,.06)}
+.btn--ghost:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.3);transform:translateY(-2px)}
+.btn--outline{border:1px solid var(--hair-strong);color:var(--ink)}
+.btn--outline:hover{border-color:var(--green-700);color:var(--green-700);background:var(--green-050);transform:translateY(-2px)}
+.btn--lg{padding:16px 32px;font-size:var(--t-base)}
+
+/* ═══ nav ════════════════════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:var(--s-5) 0;
+}
+.nav .container{max-width:var(--container-nav)}
+
+.nav__bar{
+  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:var(--s-6);
+  padding:14px 16px 14px 28px;
+  background:var(--glass);
+  border:1px solid var(--hair-inv);
+  border-radius:var(--r-pill);
+  backdrop-filter:blur(14px) saturate(150%);
+  -webkit-backdrop-filter:blur(14px) saturate(150%);
+  transition:background-color .35s var(--ease),border-color .35s var(--ease),box-shadow .35s var(--ease),transform .35s var(--ease);
+}
+/* the bar rises with transform, not padding — no layout work per frame */
+.nav.is-stuck .nav__bar{
+  transform:translateY(-12px);
+  background:rgba(4,18,31,.72);
+  border-color:rgba(255,255,255,.10);
+  box-shadow:0 8px 32px rgba(4,18,31,.28);
+}
+
+/* wordmark: live text, not a bitmap */
+.wordmark{display:block;line-height:1;color:var(--ink-inv)}
+.wordmark__name{font-size:1.5rem;font-weight:700;letter-spacing:-.03em;display:block}
+.wordmark__name b{font-weight:700;color:var(--green-500)}
+.wordmark__sub{
+  display:block;font-size:.5rem;font-weight:500;
+  letter-spacing:.36em;text-transform:uppercase;
+  color:var(--ink-inv-faint);margin-top:3px;padding-left:2px;
+}
+.nav .wordmark__name{font-size:1.375rem}
+
+.nav__links{display:flex;justify-content:center;gap:var(--s-7)}
+.nav__links a{
+  font-size:var(--t-sm);font-weight:500;color:var(--ink-inv-soft);
+  position:relative;padding-block:4px;transition:color .2s var(--ease);
+}
+.nav__links a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;
+  background:var(--green-300);border-radius:2px;
+  transform:scaleX(0);transform-origin:center;
+  transition:transform .3s var(--ease-out);
+}
+.nav__links a:hover{color:var(--ink-inv)}
+.nav__links a:hover::after,
+.nav__links a.is-active::after{transform:scaleX(1)}
+.nav__links a.is-active{color:var(--ink-inv)}
+
+.nav__cta{display:flex;align-items:center;gap:var(--s-3)}
+/* the bar and the burger are both fully round — the CTA should echo them */
+.nav__cta .btn{border-radius:var(--r-pill);padding-inline:26px}
+
+.burger{
+  display:none;width:42px;height:42px;border-radius:var(--r-pill);
+  align-items:center;justify-content:center;
+  border:1px solid var(--hair-inv);background:rgba(255,255,255,.08);
+}
+.burger span{
+  display:block;width:17px;height:1.5px;background:var(--ink-inv);border-radius:2px;
+  position:relative;transition:transform .3s var(--ease),background-color .3s var(--ease);
+}
+.burger span::before,.burger span::after{
+  content:"";position:absolute;left:0;width:17px;height:1.5px;background:var(--ink-inv);border-radius:2px;
+  transition:transform .3s var(--ease),top .25s var(--ease);
+}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+body.menu-open .burger span{background:transparent}
+body.menu-open .burger span::before{top:0;transform:rotate(45deg)}
+body.menu-open .burger span::after{top:0;transform:rotate(-45deg)}
+
+/* mobile drawer */
+.drawer{
+  position:fixed;inset:0;z-index:99;
+  background:linear-gradient(165deg,var(--green-800) 0%,var(--navy-900) 100%);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:var(--gutter);
+  opacity:0;visibility:hidden;transform:translateY(-8px);
+  transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s;
+}
+body.menu-open .drawer{opacity:1;visibility:visible;transform:none}
+.drawer a{
+  font-size:var(--t-2xl);font-weight:600;letter-spacing:-.02em;
+  color:var(--ink-inv);padding-block:var(--s-3);
+  border-bottom:1px solid var(--hair-inv);
+  display:flex;align-items:center;justify-content:space-between;
+  opacity:0;transform:translateY(12px);
+}
+body.menu-open .drawer a{
+  opacity:1;transform:none;
+  transition:opacity .4s var(--ease-out) calc(.06s * var(--i)),transform .4s var(--ease-out) calc(.06s * var(--i));
+}
+.drawer a svg{opacity:.4}
+.drawer__foot{margin-top:var(--s-7)}
+/* the CTA is a button, not a drawer link — reclaim it from `.drawer a` */
+.drawer__foot .btn{
+  width:100%;font-size:var(--t-base);color:var(--green-700);
+  border-bottom:0;opacity:1;transform:none;justify-content:center;
+}
+
+/* ═══ hero ═══════════════════════════════════════════════════ */
+.hero{
+  position:relative;isolation:isolate;
+  min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-top:180px;padding-bottom:var(--s-7);
+  color:var(--ink-inv);overflow:hidden;
+}
+.hero__bg{position:absolute;inset:0;z-index:-2;background:var(--green-800)}
+.hero__photo{position:absolute;inset:0}
+.hero__photo img{width:100%;height:100%;object-fit:cover;object-position:var(--hero-focus)}
+/* Legibility scrim. The plate fades to pale mint exactly where the headline
+   sits, so white text needs this to clear contrast — it darkens the left and
+   the bottom edge and leaves the Сливен skyline on the right untouched. */
+.hero__scrim{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(101deg,
+      rgba(4,44,32,.88)  0%,
+      rgba(6,62,45,.62) 22%,
+      rgba(6,62,45,.26) 42%,
+      rgba(6,62,45,.06) 58%,
+      transparent       72%),
+    linear-gradient(180deg,
+      rgba(3,26,19,.42)  0%,
+      transparent       22%,
+      transparent       58%,
+      rgba(3,20,15,.55) 100%);
+}
+
+.hero__inner{display:grid;gap:var(--s-8);width:100%}
+
+.hero__eyebrow{
+  display:inline-flex;align-items:center;gap:var(--s-3);
+  font-size:var(--t-xs);font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-inv-soft);margin-bottom:var(--s-5);
+}
+.hero__eyebrow i{width:5px;height:5px;border-radius:50%;background:var(--green-300);flex:none}
+
+.hero h1{
+  font-size:var(--t-4xl);font-weight:800;line-height:.98;
+  letter-spacing:-.04em;text-wrap:balance;max-width:14ch;
+}
+.hero__tagline{
+  font-size:var(--t-xl);font-weight:600;letter-spacing:-.02em;line-height:1.25;
+  color:var(--green-300);margin-top:var(--s-3);text-wrap:balance;
+}
+.hero__meta{display:flex;flex-wrap:wrap;gap:var(--s-3);margin-top:var(--s-6)}
+.chip{
+  display:inline-flex;align-items:center;gap:var(--s-2);
+  padding:9px 16px;border-radius:var(--r-pill);
+  background:rgba(255,255,255,.12);border:1px solid var(--hair-inv);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  font-size:var(--t-sm);font-weight:500;
+}
+.chip svg{opacity:.8;flex:none}
+.hero__actions{display:flex;flex-wrap:wrap;gap:var(--s-3);margin-top:var(--s-7)}
+
+/* hero footer: stats + organisers */
+.hero__foot{
+  display:grid;grid-template-columns:1fr auto;align-items:end;gap:var(--s-7);
+}
+.stats{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  background:rgba(4,18,31,.34);
+  border:1px solid var(--hair-inv);border-radius:var(--r-lg);
+  backdrop-filter:blur(12px) saturate(140%);-webkit-backdrop-filter:blur(12px) saturate(140%);
+  overflow:hidden;
+}
+.stat{padding:var(--s-5) var(--s-5);position:relative}
+.stat + .stat::before{
+  content:"";position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--hair-inv);
+}
+.stat b{
+  display:block;font-size:var(--t-xl);font-weight:700;letter-spacing:-.03em;
+  line-height:1;font-variant-numeric:tabular-nums;
+}
+.stat span{
+  display:block;font-size:var(--t-xs);color:var(--ink-inv-soft);
+  margin-top:6px;letter-spacing:.02em;
+}
+
+.organisers{display:flex;flex-direction:column;gap:var(--s-3)}
+.organisers > span{
+  font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-inv-faint);font-weight:500;
+}
+.organisers__row{display:flex;align-items:center;gap:var(--s-5);flex-wrap:wrap}
+/* real logos, sized by optical weight rather than one uniform box —
+   the crests are square, the wordmarks are wide */
+.organisers__row img{height:46px;width:auto;object-fit:contain}
+.organisers__row img[data-shape="crest"]{height:52px}
+.organisers__row img[data-shape="wordmark"]{height:34px}
+
+/* Desktop: the headline block sits in the middle of the photo and the
+   stats/organisers bar stays on the bottom edge, so on a tall or 4K screen
+   the copy no longer sinks to the floor. The photo is pale haze up there,
+   so a soft pool of shade follows the text column wherever it lands. */
+@media (min-width:901px){
+  .hero{padding-top:128px}
+  .hero__inner{flex:1;grid-template-rows:1fr auto}
+  .hero__inner > :first-child{align-self:center}
+  .hero__scrim{
+    background:
+      radial-gradient(ellipse 62em 40em at calc(50% - 14em) 46%,
+        rgba(4,40,29,.50) 0%, rgba(4,40,29,.24) 48%, transparent 78%),
+      linear-gradient(101deg,
+        rgba(4,44,32,.88)  0%,
+        rgba(6,62,45,.62) 22%,
+        rgba(6,62,45,.26) 42%,
+        rgba(6,62,45,.06) 58%,
+        transparent       72%),
+      linear-gradient(180deg,
+        rgba(3,26,19,.42)  0%,
+        transparent       22%,
+        transparent       58%,
+        rgba(3,20,15,.55) 100%);
+  }
+}
+
+/* ═══ why ════════════════════════════════════════════════════ */
+.why__grid{
+  display:grid;gap:var(--s-4);
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+.why__card{
+  background:var(--white);border:1px solid var(--hair);border-radius:var(--r-lg);
+  padding:var(--s-6) var(--s-5);
+  transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out),border-color .3s var(--ease);
+}
+.why__card:hover{transform:translateY(-4px);box-shadow:var(--e-2);border-color:var(--green-100)}
+.why__icon{
+  width:52px;height:52px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--green-050);color:var(--green-700);
+  margin-bottom:var(--s-5);
+  transition:background-color .3s var(--ease),color .3s var(--ease);
+}
+.why__card:hover .why__icon{background:var(--green-700);color:#fff}
+.why__card p{font-size:var(--t-sm);font-weight:500;line-height:1.55;color:var(--ink)}
+
+/* ═══ programme ══════════════════════════════════════════════ */
+.prog{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:var(--s-9)}
+.prog__aside{position:sticky;top:120px;align-self:start}
+.prog__note{
+  margin-top:var(--s-6);padding:var(--s-5);
+  border:1px solid var(--hair-inv);border-radius:var(--r-md);
+  background:rgba(255,255,255,.03);
+  font-size:var(--t-sm);color:var(--ink-inv-soft);
+}
+.prog__note b{color:var(--ink-inv);font-weight:600}
+
+.rail{position:relative;padding-left:var(--s-6)}
+.rail::before{
+  content:"";position:absolute;left:5px;top:14px;bottom:14px;width:1px;
+  background:linear-gradient(180deg,transparent,var(--hair-inv) 8%,var(--hair-inv) 92%,transparent);
+}
+.slot{
+  position:relative;display:grid;grid-template-columns:minmax(112px,auto) 1fr;
+  gap:var(--s-5);padding:var(--s-4) var(--s-4) var(--s-4) 0;
+  border-radius:var(--r-md);
+  transition:background-color .25s var(--ease);
+}
+.slot:hover{background:rgba(255,255,255,.04)}
+.slot::before{
+  content:"";position:absolute;left:calc(-1 * var(--s-6) + 1px);top:26px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--green-500);box-shadow:0 0 0 4px rgba(46,176,131,.16);
+  transition:box-shadow .3s var(--ease),background-color .3s var(--ease);
+}
+.slot:hover::before{box-shadow:0 0 0 6px rgba(46,176,131,.22)}
+.slot__time{
+  font-size:var(--t-sm);font-weight:600;font-variant-numeric:tabular-nums;
+  letter-spacing:.01em;color:var(--green-300);padding-top:1px;white-space:nowrap;
+}
+.slot__title{font-size:var(--t-md);font-weight:500;line-height:1.45;letter-spacing:-.008em}
+
+/* breaks read as connective tissue, not as sessions */
+.slot--break .slot__title{color:var(--ink-inv-faint);font-weight:400;font-size:var(--t-base)}
+.slot--break .slot__time{color:var(--ink-inv-faint);font-weight:500}
+.slot--break::before{background:transparent;border:1.5px solid var(--ink-inv-faint);box-shadow:none;width:8px;height:8px}
+.slot--break:hover::before{box-shadow:none}
+
+/* ═══ speakers ═══════════════════════════════════════════════ */
+.speakers__grid{
+  display:grid;gap:var(--s-4);
+  grid-template-columns:repeat(6,minmax(0,1fr));
+}
+/* Photo on the green wash of the announcement posts, then role, name, title.
+   An unannounced slot keeps the same photo box in plain grey, so rows line up.
+   Not interactive, so no hover. */
+.speaker{display:flex;flex-direction:column;gap:var(--s-2);text-align:center}
+.speaker__photo{
+  aspect-ratio:4/5;border-radius:var(--r-lg);overflow:hidden;padding-top:10%;margin-bottom:var(--s-2);
+  background:linear-gradient(180deg,var(--green-050),var(--green-100));
+}
+/* cut-outs are trimmed to the head, so the padding above is the headroom */
+.speaker__photo img{width:100%;height:100%;object-fit:cover;object-position:50% 0}
+.speaker__role{font-size:var(--t-xs);font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:var(--green-700)}
+.speaker__name{font-size:var(--t-base);font-weight:700;line-height:1.25;color:var(--ink)}
+.speaker__title{font-size:var(--t-xs);line-height:1.45;color:var(--ink-soft)}
+.speaker--tba .speaker__photo{
+  padding:0;background:var(--grey-100);color:var(--grey-300);
+  display:flex;align-items:center;justify-content:center;
+}
+.speaker__tba{font-size:var(--t-sm);font-weight:600;letter-spacing:.01em;color:var(--grey-600)}
+
+/* ═══ tickets ════════════════════════════════════════════════ */
+/* Cards left, forum copy right. The cards take the larger share so each
+   benefit's title + detail line has room; everything stacks below 1080px. */
+.tickets{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:var(--s-7);align-items:start}
+/* The recommended tier is given more of everything a pricing table can give:
+   more width, more height, more elevation, bigger numerals, a brighter
+   surface — while the plain tier is quietly stepped back. */
+.tiers{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.14fr);
+  gap:var(--s-5);align-items:stretch;
+}
+
+.tier{
+  position:relative;display:flex;flex-direction:column;
+  background:var(--paper);color:var(--ink);
+  border-radius:var(--r-lg);padding:var(--s-6) var(--s-5) var(--s-5);
+  box-shadow:var(--e-1);
+  transition:transform .35s var(--ease-out),box-shadow .35s var(--ease-out);
+}
+.tier:hover{transform:translateY(-4px);box-shadow:var(--e-3)}
+
+/* the ribbon is part of the card, not floated on top of it */
+.tier--featured{
+  background:var(--white);
+  margin-block:-20px;              /* overhangs its neighbour, top and bottom */
+  padding:calc(var(--s-6) + 28px) var(--s-6) var(--s-6);
+  z-index:1;
+  box-shadow:
+    0 0 0 2px var(--green-700),
+    0 20px 48px rgba(24,129,93,.24),
+    var(--e-3);
+}
+.tier--featured:hover{
+  box-shadow:
+    0 0 0 2px var(--green-700),
+    0 28px 60px rgba(24,129,93,.30),
+    var(--e-3);
+}
+.tier--featured .tier__name{font-size:var(--t-xl)}
+.tier--featured .tier__price{font-size:var(--t-3xl)}
+.tier--featured .tier__list li{font-size:var(--t-base);color:var(--ink)}
+.tier--featured .btn{padding-block:16px}
+
+.tier__ribbon{
+  position:absolute;top:0;left:0;right:0;
+  background:var(--green-700);color:#fff;
+  border-radius:var(--r-lg) var(--r-lg) 0 0;
+  padding:11px;text-align:center;
+  font-size:var(--t-sm);font-weight:600;letter-spacing:.09em;text-transform:uppercase;
+}
+.tier__head{display:flex;align-items:flex-start;gap:var(--s-3)}
+.tier__icon{color:var(--green-700);flex:none;margin-top:2px}
+.tier__name{font-size:var(--t-lg);font-weight:600;letter-spacing:-.015em;line-height:1.2}
+.tier__price{
+  font-size:var(--t-2xl);font-weight:700;letter-spacing:-.035em;
+  line-height:1;margin-top:6px;font-variant-numeric:tabular-nums;
+}
+.tier__price span{font-size:var(--t-md);font-weight:600;color:var(--ink-faint);letter-spacing:-.01em}
+.tier__list{margin:var(--s-5) 0;display:grid;gap:14px;align-content:start;flex:1}
+.tier__list li{
+  display:flex;gap:10px;align-items:flex-start;
+  font-size:var(--t-sm);color:var(--ink-soft);line-height:1.5;
+}
+.tier__list svg{color:var(--green-700);flex:none;margin-top:3px}
+/* each benefit: a bold line, then one line of detail */
+.tier__list b{display:block;font-weight:600;color:var(--ink);line-height:1.4}
+.tier__list small{display:block;font-size:var(--t-xs);color:var(--ink-soft);line-height:1.55;margin-top:2px}
+.tier--featured .tier__list small{font-size:var(--t-sm)}
+.tier__lead{margin-top:var(--s-5);font-size:var(--t-sm);font-weight:600;color:var(--green-700)}
+.tier__lead + .tier__list{margin-top:var(--s-3)}
+.tier .btn{width:100%}
+
+.tickets__copy p + p{margin-top:var(--s-4)}
+.tickets__copy p{color:var(--ink-inv-soft);line-height:1.75}
+.tickets__copy p:first-of-type{color:var(--ink-inv);font-size:var(--t-md)}
+
+/* ═══ gallery ════════════════════════════════════════════════ */
+.gallery{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:var(--s-3);
+  margin-top:var(--s-9);
+}
+.gallery__tile{
+  aspect-ratio:4/3;border-radius:var(--r-md);overflow:hidden;
+  background:linear-gradient(150deg,rgba(46,176,131,.22),rgba(4,18,31,.5));
+  border:1px solid var(--hair-inv);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--ink-inv-faint);
+  transition:transform .4s var(--ease-out),border-color .3s var(--ease);
+}
+.gallery__tile:hover{transform:scale(1.03);border-color:rgba(255,255,255,.3)}
+.gallery__tile picture{display:contents}
+.gallery__tile img{width:100%;height:100%;object-fit:cover}
+
+/* ═══ partners ═══════════════════════════════════════════════ */
+/* logos vary wildly in aspect — a rigid grid would letterbox them,
+   so this is a centred wrapping row of equal-height cards */
+.partners__grid{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:var(--s-4);
+}
+.partner{
+  flex:0 1 168px;height:104px;border-radius:var(--r-md);
+  border:1px solid var(--hair);background:var(--white);
+  display:flex;align-items:center;justify-content:center;padding:var(--s-4);
+  transition:border-color .3s var(--ease),box-shadow .3s var(--ease),transform .3s var(--ease-out);
+}
+.partner:hover{border-color:var(--green-100);box-shadow:var(--e-1);transform:translateY(-2px)}
+.partner img{max-height:64px;max-width:100%;width:auto;object-fit:contain}
+.partner img[data-shape="wordmark"]{max-height:44px}
+/* ═══ footer ═════════════════════════════════════════════════ */
+.footer{background:var(--navy-900);color:var(--ink-inv);padding-block:var(--s-9) var(--s-5)}
+.footer__top{
+  display:grid;grid-template-columns:1fr auto 1fr;gap:var(--s-8);
+  align-items:start;padding-bottom:var(--s-8);
+}
+.footer h4{
+  font-size:var(--t-xs);font-weight:600;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--ink-inv-faint);margin-bottom:var(--s-5);
+}
+.footer__contacts{display:grid;gap:var(--s-3)}
+.footer__contacts a{
+  display:flex;align-items:center;gap:var(--s-3);
+  font-size:var(--t-sm);color:var(--ink-inv-soft);
+  transition:color .2s var(--ease);width:fit-content;
+}
+.footer__contacts a:hover{color:var(--ink-inv)}
+.footer__contacts i{
+  width:30px;height:30px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.08);color:var(--green-300);
+  transition:background-color .25s var(--ease),color .25s var(--ease);
+}
+.footer__contacts a:hover i{background:var(--green-700);color:#fff}
+.footer__mid{text-align:center}
+/* whole column flush right — heading included, so it sits over its own links */
+.footer__legal-col{text-align:right}
+.footer__legal{display:grid;gap:10px;justify-items:end}
+.footer__legal a{font-size:var(--t-sm);color:var(--ink-inv-soft);transition:color .2s}
+.footer__legal a:hover{color:var(--ink-inv)}
+.footer__orgs{
+  display:flex;flex-direction:column;align-items:center;gap:var(--s-4);
+  padding-block:var(--s-7);border-top:1px solid var(--hair-inv);
+}
+.footer__orgs > span{font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-inv-faint)}
+.footer__bottom{
+  border-top:1px solid var(--hair-inv);padding-top:var(--s-5);
+  text-align:center;font-size:var(--t-xs);color:var(--ink-inv-faint);
+}
+
+/* ═══ mobile sticky CTA ══════════════════════════════════════ */
+.mobile-cta{
+  position:fixed;left:16px;right:16px;bottom:16px;z-index:98;
+  display:none;
+  transform:translateY(140%);transition:transform .4s var(--ease-out);
+}
+.mobile-cta.is-visible{transform:none}
+.mobile-cta .btn{width:100%;padding:16px;box-shadow:0 10px 30px rgba(4,18,31,.35),var(--e-green)}
+body.menu-open .mobile-cta{transform:translateY(140%)}
+
+/* ═══ touch devices: no live blur ════════════════════════════
+   backdrop-filter re-blurs whatever moves underneath on every scroll
+   frame — free on a desktop GPU, dropped frames on a mid-range phone.
+   A slightly denser tint reads the same at arm's length. The nav keeps
+   its glass at the top of the page, where nothing moves behind it. */
+@media (hover:none){
+  .nav.is-stuck .nav__bar{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(4,18,31,.92)}
+  .chip,.stats,.btn--ghost{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .stats{background:rgba(4,18,31,.5)}
+  .chip{background:rgba(255,255,255,.16)}
+  .btn--ghost{background:rgba(255,255,255,.14)}
+}
+
+/* ═══ reveal ═════════════════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(20px)}
+.reveal.is-in{
+  opacity:1;transform:none;
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ═══ breakpoints ════════════════════════════════════════════ */
+@media (max-width:1080px){
+  .prog{grid-template-columns:1fr;gap:var(--s-7)}
+  .prog__aside{position:static}
+  .tickets{grid-template-columns:1fr;gap:var(--s-7)}
+  .hero__foot{grid-template-columns:1fr;align-items:start}
+  .gallery{grid-template-columns:repeat(3,1fr)}
+  .why__grid,.speakers__grid,.partners__grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  /* wider columns — a portrait box would make each card very tall */
+  .speaker__photo{aspect-ratio:1/1}
+}
+
+@media (max-width:900px){
+  .nav__links{display:none}
+  .nav__cta .btn{display:none}
+  .burger{display:flex}
+  /* with the links hidden, the CTA would land in the 1fr column — pin it right */
+  .nav__bar{grid-template-columns:auto 1fr;padding:12px 12px 12px 22px}
+  .nav__cta{justify-self:end}
+  .mobile-cta{display:block}
+  .hero{padding-top:150px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat + .stat::before{display:none}
+  .stat:nth-child(n+3){border-top:1px solid var(--hair-inv)}
+  .stat:nth-child(even){border-left:1px solid var(--hair-inv)}
+  .footer__top{grid-template-columns:1fr;gap:var(--s-7);text-align:center}
+  .footer__contacts a{margin-inline:auto}
+  .footer__legal-col{text-align:center}
+  .footer__legal{justify-items:center}
+}
+
+@media (max-width:600px){
+  .slot{grid-template-columns:1fr;gap:2px;padding-block:var(--s-3)}
+  .slot::before{top:20px}
+  .why__grid,.speakers__grid,.partners__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  /* two 168px cards don't fit a 335px column — go 2-up instead of stacking */
+  .partner{flex-basis:calc(50% - var(--s-2))}
+  /* stacked: the overhang has nothing to overhang, so drop it */
+  .tiers{grid-template-columns:1fr;gap:var(--s-5)}
+  .tier--featured{margin-block:0;padding-top:calc(var(--s-6) + 28px)}
+  .gallery{grid-template-columns:repeat(2,1fr)}
+  .hero__actions .btn{flex:1}
+  .organisers__row{flex-wrap:wrap;gap:var(--s-3)}
+
+  /* tighten the hero so the stat bar stays close to the fold */
+  .hero{padding-top:126px}
+  .hero__inner{gap:var(--s-6)}
+  .hero__eyebrow{letter-spacing:.10em;font-size:.6875rem;margin-bottom:var(--s-4)}
+  .hero__meta{margin-top:var(--s-5)}
+  .hero__actions{margin-top:var(--s-5)}
+  .btn--lg{padding:14px 22px}
+}
+
+/* Big screens — 4K monitors at 125–150% scaling land here. The type scale
+   is in rem, so bumping the root scales it; the columns widen with it so
+   the page doesn't sit small in the middle of the screen. */
+@media (min-width:1800px){
+  html{font-size:112.5%}
+  :root{--container:1320px;--container-nav:1480px}
+}
+@media (min-width:2400px){
+  html{font-size:125%}
+  :root{--container:1480px;--container-nav:1640px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══ nav ═══════════════════════════════════════════════════ -->
+<header class="nav" id="nav">
+  <div class="container">
+    <div class="nav__bar">
+      <a href="https://travelx.bg/" class="wordmark" aria-label="TravelX — всички събития">
+        <span class="wordmark__name">Travel<b>X</b></span>
+        <span class="wordmark__sub">Conference</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Основна навигация">
+        <a href="#programa">Програма</a>
+        <a href="#lektori">Лектори</a>
+        <a href="#sponsori">Спонсори</a>
+        <a href="#kontakti">Контакти</a>
+      </nav>
+
+      <div class="nav__cta">
+        <a class="btn btn--white" href="#bileti">Купи билет</a>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="drawer">
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer">
+  <nav aria-label="Мобилна навигация">
+    <a href="#programa" style="--i:1">Програма <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#lektori" style="--i:2">Лектори <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#bileti" style="--i:3">Билети <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#sponsori" style="--i:4">Спонсори <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    <a href="#kontakti" style="--i:5">Контакти <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  </nav>
+  <div class="drawer__foot">
+    <a class="btn btn--white btn--lg" href="#bileti">Купи билет</a>
+  </div>
+</div>
+
+<!-- ═══ hero ══════════════════════════════════════════════════ -->
+<section class="hero" id="top">
+  <div class="hero__bg">
+    <picture class="hero__photo">
+      <source type="image/avif" srcset="assets/hero-960.avif 960w, assets/hero-1600.avif 1600w, assets/hero-2400.avif 2400w" sizes="100vw">
+      <img src="assets/hero-1600.jpg" alt="" width="1600" height="1033" fetchpriority="high">
+    </picture>
+    <div class="hero__scrim"></div>
+  </div>
+
+  <div class="container hero__inner">
+    <div>
+      <p class="hero__eyebrow"><i></i>Възможности · Предизвикателства · Решения</p>
+      <h1>Urban Experiences</h1>
+      <p class="hero__tagline">Бъдещето на градския туризъм</p>
+
+      <div class="hero__meta">
+        <span class="chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+          21 ноември 2026
+        </span>
+        <span class="chip">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+          гр. Сливен
+        </span>
+      </div>
+
+      <div class="hero__actions">
+        <a class="btn btn--white btn--lg" href="#bileti">Купи билет</a>
+        <a class="btn btn--ghost btn--lg" href="#programa">Виж програмата</a>
+      </div>
+    </div>
+
+    <div class="hero__foot">
+      <div class="stats">
+        <div class="stat"><b>100+</b><span>Посетители</span></div>
+        <div class="stat"><b>6+</b><span>Ключови теми</span></div>
+        <div class="stat"><b>30+</b><span>Лектори</span></div>
+        <div class="stat"><b>10+</b><span>Изложители</span></div>
+      </div>
+
+      <div class="organisers">
+        <span>Организатори</span>
+        <!-- hero order in the Figma differs from the footer's: museum second -->
+        <div class="organisers__row">
+          <img src="assets/crest-white.webp" alt="Община Сливен" data-shape="crest" width="39" height="52">
+          <img src="assets/logo-rim-sliven.webp" alt="Регионален исторически музей Сливен" data-shape="crest" width="61" height="52">
+          <img src="assets/logo-urbo-studio.webp" alt="URBO Studio" data-shape="wordmark" width="67" height="34">
+          <img src="assets/logo-digital4.webp" alt="Digital4 Business Network" data-shape="wordmark" width="105" height="34">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ why ═══════════════════════════════════════════════════ -->
+<section class="section section--paper" id="zashto">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Защо да присъствате</p>
+      <h2 class="h2">Защо <em>TravelX</em>?</h2>
+    </div>
+
+    <div class="why__grid reveal">
+      <article class="why__card">
+        <div class="why__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 20v-1.8a3.2 3.2 0 00-3.2-3.2H6.2A3.2 3.2 0 003 18.2V20"/><circle cx="9.5" cy="7.5" r="3.4"/><path d="M21 20v-1.8a3.2 3.2 0 00-2.4-3.1M15.5 4.3a3.2 3.2 0 010 6.2"/></svg>
+        </div>
+        <p>Срещи с ключови професионалисти от туристическия сектор</p>
+      </article>
+
+      <article class="why__card">
+        <div class="why__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.6" cy="12" r="5.4"/><circle cx="15.4" cy="12" r="5.4"/></svg>
+        </div>
+        <p>Нови партньорства и бизнес възможности</p>
+      </article>
+
+      <article class="why__card">
+        <div class="why__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 00-3.6 10.8c.6.5.9 1.1 1 1.7v.5h5.2v-.5c.1-.6.4-1.2 1-1.7A6 6 0 0012 3z"/></svg>
+        </div>
+        <p>Работещи идеи за развитие на дестинации</p>
+      </article>
+
+      <article class="why__card">
+        <div class="why__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><rect x="4" y="12" width="3.6" height="6" rx="1"/><rect x="10.2" y="8" width="3.6" height="10" rx="1"/><rect x="16.4" y="4" width="3.6" height="14" rx="1"/></svg>
+        </div>
+        <p>Реален поглед към нуждите на туристическия пазар</p>
+      </article>
+
+      <article class="why__card">
+        <div class="why__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2 5.2-5.2 2 2-5.2z"/></svg>
+        </div>
+        <p>Нови модели за туристически продукти и преживявания</p>
+      </article>
+
+      <article class="why__card">
+        <div class="why__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.2A2.7 2.7 0 015.2 3.5h6.6a2.7 2.7 0 012.7 2.7v3.1a2.7 2.7 0 01-2.7 2.7H7.4L4.2 14.4V12H5.2a2.7 2.7 0 01-2.7-2.7z"/><path d="M17 9.6h1.8a2.7 2.7 0 012.7 2.7v3.4a2.7 2.7 0 01-2.7 2.7h-.6v2.3l-3-2.3h-3.6a2.7 2.7 0 01-2.7-2.7v-.5"/></svg>
+        </div>
+        <p>Директен диалог между бизнес, общини и институции</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ programme ═════════════════════════════════════════════ -->
+<section class="section section--dark" id="programa">
+  <div class="container prog">
+    <aside class="prog__aside reveal">
+      <p class="eyebrow">21 ноември 2026</p>
+      <h2 class="h2">Програма</h2>
+      <p class="lede">Един ден, шест тематични панела и директен разговор между хората, които изграждат дестинацията.</p>
+      <div class="prog__note">
+        <b>09:00 – 18:00</b><br>
+        гр. Сливен. Регистрацията отваря в 9:00.
+      </div>
+    </aside>
+
+    <div class="rail reveal">
+      <div class="slot slot--break">
+        <div class="slot__time">9:00 – 10:00</div>
+        <div class="slot__title">Регистрация</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">10:00 – 10:30</div>
+        <div class="slot__title">Откриване на конференцията</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">10:30 – 11:20</div>
+        <div class="slot__title">Стратегии, управление и партньорства за изграждане на цялостна туристическа дестинация</div>
+      </div>
+      <div class="slot slot--break">
+        <div class="slot__time">11:30 – 12:00</div>
+        <div class="slot__title">Кафе пауза</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">12:00 – 12:50</div>
+        <div class="slot__title">Културен код на града — наследство, преживявания и събития</div>
+      </div>
+      <div class="slot slot--break">
+        <div class="slot__time">13:00 – 14:00</div>
+        <div class="slot__title">Обедна почивка</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">14:00 – 14:50</div>
+        <div class="slot__title">Нови модели за предлагане, пакетиране и развитие на туристически продукти</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">15:00 – 15:50</div>
+        <div class="slot__title">Да задържим туриста — настаняването като ключ към развитието на дестинацията</div>
+      </div>
+      <div class="slot slot--break">
+        <div class="slot__time">16:00 – 16:20</div>
+        <div class="slot__title">Кафе пауза</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">16:20 – 17:00</div>
+        <div class="slot__title">Как да развием гастрономическия потенциал на дестинацията в туристически продукт</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">17:00 – 17:40</div>
+        <div class="slot__title">Технологии и дигитални услуги за по-достъпно, свързано и персонализирано туристическо преживяване</div>
+      </div>
+      <div class="slot">
+        <div class="slot__time">17:40 – 18:00</div>
+        <div class="slot__title">Закриване на конференцията</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ speakers ══════════════════════════════════════════════ -->
+<section class="section section--white" id="lektori">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Кой ще говори</p>
+      <h2 class="h2">Лектори</h2>
+      <p class="lede">Имената се обявяват на етапи. Следете страницата или ни последвайте за актуализации.</p>
+    </div>
+
+    <!-- First batch from the Figma announcement posts (Oct 2026). Announce the
+         next one by replacing the .speaker--tba <li> or adding after it. -->
+    <ul class="speakers__grid reveal">
+      <li class="speaker">
+        <div class="speaker__photo"><img src="assets/speaker-yanev.webp" alt="" width="640" height="803" loading="lazy" decoding="async"></div>
+        <p class="speaker__role">Модератор</p>
+        <h3 class="speaker__name">Христо Янев</h3>
+        <p class="speaker__title">Собственик, VisitBulgariaOn.com и MeOnTour.com</p>
+      </li>
+      <li class="speaker">
+        <div class="speaker__photo"><img src="assets/speaker-ivanov.webp" alt="" width="640" height="727" loading="lazy" decoding="async"></div>
+        <p class="speaker__role">Гост-панелист</p>
+        <h3 class="speaker__name">проф. Станислав Иванов</h3>
+        <p class="speaker__title">Президент, International Federation for IT and Travel &amp; Tourism | Директор, Zangador Research Institute</p>
+      </li>
+      <li class="speaker">
+        <div class="speaker__photo"><img src="assets/speaker-petrova.webp" alt="" width="640" height="800" loading="lazy" decoding="async"></div>
+        <p class="speaker__role">Гост-панелист</p>
+        <h3 class="speaker__name">Вени Петрова</h3>
+        <p class="speaker__title">Председател на регионално Сдружение на хотелиери и ресторантьори, представител на Даулите бутик хотел, гр. Сливен</p>
+      </li>
+      <li class="speaker">
+        <div class="speaker__photo"><img src="assets/speaker-todorov.webp" alt="" width="640" height="924" loading="lazy" decoding="async"></div>
+        <p class="speaker__role">Гост-панелист</p>
+        <h3 class="speaker__name">Манол Тодоров</h3>
+        <p class="speaker__title">Заместник-кмет „Спорт и туризъм“, Община Бургас</p>
+      </li>
+      <li class="speaker">
+        <div class="speaker__photo"><img src="assets/speaker-draganova.webp" alt="" width="640" height="830" loading="lazy" decoding="async"></div>
+        <p class="speaker__role">Гост-панелист</p>
+        <h3 class="speaker__name">Милена Драганова</h3>
+        <p class="speaker__title">Управител, ДАН Травел, GO2PLOVDIV</p>
+      </li>
+      <li class="speaker speaker--tba">
+        <div class="speaker__photo"><svg width="56" height="56" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21a8.5 8.5 0 0117 0z"/></svg></div>
+        <p class="speaker__tba">Очаква се</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ tickets ═══════════════════════════════════════════════ -->
+<section class="section section--dark" id="bileti">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Достъп</p>
+      <h2 class="h2">Билети</h2>
+    </div>
+
+    <div class="tickets">
+      <div class="tiers reveal">
+        <article class="tier">
+          <div class="tier__head">
+            <span class="tier__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            </span>
+            <div>
+              <div class="tier__name">Standard</div>
+              <div class="tier__price">19 <span>EUR</span></div>
+            </div>
+          </div>
+          <ul class="tier__list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Достъп до цялата конференционна програма</b><small>Всички панели, презентации и дискусии в основната зала.</small></span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Достъп до networking зоните</b><small>Срещи и разговори с представители на бизнеса, общини, институции и партньори.</small></span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Срещи с лектори и участници</b><small>Директен контакт и обмен на идеи в рамките на дневната програма.</small></span></li>
+          </ul>
+          <a class="btn btn--outline" href="https://travelx.urboapp.com/bg/e25327-travel-x-sliven-2026-standart-ticket" target="_blank" rel="noopener">Купи билет</a>
+        </article>
+
+        <article class="tier tier--featured">
+          <div class="tier__ribbon">Препоръчан</div>
+          <div class="tier__head">
+            <span class="tier__icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+            </span>
+            <div>
+              <div class="tier__name">Premium</div>
+              <div class="tier__price">29 <span>EUR</span></div>
+            </div>
+          </div>
+          <p class="tier__lead">Всичко от Standard, плюс:</p>
+          <ul class="tier__list">
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Културен тур в Сливен</b><small>Специално преживяване, представящо историята, културната идентичност и туристическия потенциал на града.</small></span></li>
+            <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg><span><b>Вечерен бизнес коктейл</b><small>Ексклузивна networking среща за нови контакти, партньорства и неформални разговори с лектори и гости.</small></span></li>
+          </ul>
+          <a class="btn btn--primary" href="https://travelx.urboapp.com/bg/e25328-travel-x-sliven-2026-premium-ticket" target="_blank" rel="noopener">Купи билет</a>
+        </article>
+      </div>
+
+      <div class="tickets__copy reveal">
+        <p>TravelX Urban Experiences е форум за развитието на дестинацията като цялостен туристически продукт.</p>
+        <p>Събитието среща общини, туристически бизнес, туроператори, културни организации, хотелиери, производители и технологични компании, за да постави на една маса реалните възможности и предизвикателства пред региона.</p>
+        <p>Фокусът е върху конкретни решения — как местните ресурси да бъдат свързани, развити, пакетирани и превърнати в причина туристът не просто да посети Сливен, а да остане, да преживее повече и да се върне отново.</p>
+      </div>
+    </div>
+
+    <!-- Real conference photography, pulled from the Figma file. -->
+    <div class="gallery reveal">
+      <figure class="gallery__tile"><picture><source type="image/avif" srcset="assets/gallery-1-400.avif 400w, assets/gallery-1-800.avif 800w" sizes="(max-width:600px) 50vw, (max-width:1080px) 33vw, 190px"><img src="assets/gallery-1.jpg" alt="Момент от TravelX Conference" width="800" height="533" loading="lazy" decoding="async"></picture></figure>
+      <figure class="gallery__tile"><picture><source type="image/avif" srcset="assets/gallery-2-400.avif 400w, assets/gallery-2-800.avif 800w" sizes="(max-width:600px) 50vw, (max-width:1080px) 33vw, 190px"><img src="assets/gallery-2.jpg" alt="Момент от TravelX Conference" width="800" height="533" loading="lazy" decoding="async"></picture></figure>
+      <figure class="gallery__tile"><picture><source type="image/avif" srcset="assets/gallery-3-400.avif 400w, assets/gallery-3-800.avif 800w" sizes="(max-width:600px) 50vw, (max-width:1080px) 33vw, 190px"><img src="assets/gallery-3.jpg" alt="Момент от TravelX Conference" width="800" height="533" loading="lazy" decoding="async"></picture></figure>
+      <figure class="gallery__tile"><picture><source type="image/avif" srcset="assets/gallery-4-400.avif 400w, assets/gallery-4-800.avif 800w" sizes="(max-width:600px) 50vw, (max-width:1080px) 33vw, 190px"><img src="assets/gallery-4.jpg" alt="Момент от TravelX Conference" width="800" height="532" loading="lazy" decoding="async"></picture></figure>
+      <figure class="gallery__tile"><picture><source type="image/avif" srcset="assets/gallery-5-400.avif 400w, assets/gallery-5-800.avif 800w" sizes="(max-width:600px) 50vw, (max-width:1080px) 33vw, 190px"><img src="assets/gallery-5.jpg" alt="Момент от TravelX Conference" width="800" height="533" loading="lazy" decoding="async"></picture></figure>
+      <figure class="gallery__tile"><picture><source type="image/avif" srcset="assets/gallery-6-400.avif 400w, assets/gallery-6-800.avif 800w" sizes="(max-width:600px) 50vw, (max-width:1080px) 33vw, 190px"><img src="assets/gallery-6.jpg" alt="Момент от TravelX Conference" width="800" height="533" loading="lazy" decoding="async"></picture></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ partners ══════════════════════════════════════════════ -->
+<section class="section section--paper" id="sponsori">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="eyebrow">Заедно с нас</p>
+      <h2 class="h2">Партньори и спонсори</h2>
+    </div>
+
+    <!-- Add sponsors as .partner cards as they sign; the row centres itself. -->
+    <div class="partners__grid reveal">
+      <div class="partner"><img src="assets/logo-sliven-tourism.webp" alt="Сливен — Изживей историята, почувствай природата!" width="76" height="64" loading="lazy" decoding="async"></div>
+      <div class="partner"><img src="assets/logo-rim-sliven.webp" alt="Регионален исторически музей Сливен" width="76" height="64" loading="lazy" decoding="async"></div>
+      <!-- the municipality asked for its crest in black and white (Sep 2026) -->
+      <div class="partner"><img src="assets/crest-black.webp" alt="Община Сливен" width="48" height="64" loading="lazy" decoding="async"></div>
+      <div class="partner"><img src="assets/partner-urbo-city.svg" alt="URBO City" data-shape="wordmark" width="108" height="58" loading="lazy" decoding="async"></div>
+      <!-- from the main TravelX sponsors screen, black like the crest (Oct 2026) -->
+      <div class="partner"><img src="assets/partner-seomax.webp" alt="SEOMAX Digital Agency" data-shape="wordmark" width="215" height="44" loading="lazy" decoding="async"></div>
+      <div class="partner"><img src="assets/partner-img-connect-card.webp" alt="IMG Connect Card" data-shape="wordmark" width="239" height="44" loading="lazy" decoding="async"></div>
+      <div class="partner"><img src="assets/partner-pin.webp" alt="Партньор" width="69" height="64" loading="lazy" decoding="async"></div>
+      <div class="partner"><img src="assets/partner-devin.webp" alt="Devin" data-shape="wordmark" width="110" height="44" loading="lazy" decoding="async"></div>
+    </div>  </div>
+</section>
+
+<!-- ═══ footer ════════════════════════════════════════════════ -->
+<footer class="footer" id="kontakti">
+  <div class="container">
+    <div class="footer__top">
+      <div>
+        <h4>Свържете се с нас</h4>
+        <div class="footer__contacts">
+          <a href="mailto:dragostina@urbostudio.com">
+            <i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="M3 7l9 6 9-6"/></svg></i>
+            dragostina@urbostudio.com
+          </a>
+          <a href="tel:+359878171937">
+            <i><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6.5 3h3l1.5 4-2 1.5a12 12 0 006.5 6.5l1.5-2 4 1.5v3a2 2 0 01-2.2 2A17 17 0 014.5 5.2 2 2 0 016.5 3z"/></svg></i>
+            087 817 1937
+          </a>
+          <a href="https://www.facebook.com/travelxconf" target="_blank" rel="noopener">
+            <i><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.29-.04-1.28-.12-2.43-.12-2.4 0-4.05 1.47-4.05 4.17V9.9H7.5V13h2.72v8z"/></svg></i>
+            Facebook
+          </a>
+          <a href="https://www.linkedin.com/company/travelxconference" target="_blank" rel="noopener">
+            <i><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5A1.94 1.94 0 113 5a1.94 1.94 0 013.94 0zM3.2 8.4h3.5V21H3.2zM10 8.4h3.35v1.72h.05c.47-.85 1.6-1.75 3.3-1.75 3.53 0 4.18 2.2 4.18 5.07V21h-3.5v-6.14c0-1.46-.03-3.35-2.06-3.35-2.06 0-2.38 1.6-2.38 3.25V21H10z"/></svg></i>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__mid">
+        <a href="#top" class="wordmark" style="text-align:center">
+          <span class="wordmark__name">Travel<b>X</b></span>
+          <span class="wordmark__sub">Conference</span>
+        </a>
+      </div>
+
+      <div class="footer__legal-col">
+        <h4>Политика за ползване</h4>
+        <!-- ⚠ Link targets unknown — travelx.bg has no legal pages linked yet. -->
+
+        <div class="footer__legal">
+          <a href="https://urboapp.com/bg/pages/terms-and-conditions" target="_blank" rel="noopener">Общи условия</a>
+          <a href="https://urboapp.com/bg/cookie-policy" target="_blank" rel="noopener">Бисквитки</a>
+          <a href="https://urboapp.com/bg/pages/privacy-policy" target="_blank" rel="noopener">Политика за поверителност</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__orgs">
+      <span>Организатори</span>
+      <div class="organisers__row">
+        <img src="assets/crest-white.webp" alt="Община Сливен" data-shape="crest" width="39" height="52">
+        <img src="assets/logo-urbo-studio.webp" alt="URBO Studio" data-shape="wordmark" width="67" height="34">
+        <img src="assets/logo-rim-sliven.webp" alt="Регионален исторически музей Сливен" data-shape="crest" width="61" height="52">
+        <img src="assets/logo-digital4.webp" alt="Digital4 Business Network" data-shape="wordmark" width="105" height="34">
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      © 2026 Powered by URBO Studio · Web Design &amp; Creative — URBO Studio. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta" id="mobileCta">
+  <a class="btn btn--primary" href="#bileti">Купи билет · от 19 EUR</a>
+</div>
+
+<script>
+(function(){
+  'use strict';
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ── nav: solidify on scroll, reveal mobile CTA past the hero ── */
+  var nav = document.getElementById('nav');
+  var cta = document.getElementById('mobileCta');
+  var ticking = false;
+
+  function onScroll(){
+    var y = window.scrollY;
+    nav.classList.toggle('is-stuck', y > 40);
+    cta.classList.toggle('is-visible', y > window.innerHeight * 0.7);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if (!ticking){ window.requestAnimationFrame(onScroll); ticking = true; }
+  }, {passive:true});
+  onScroll();
+
+  /* ── mobile drawer ── */
+  var burger = document.getElementById('burger');
+  var drawer = document.getElementById('drawer');
+
+  function setMenu(open){
+    document.body.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){
+    setMenu(!document.body.classList.contains('menu-open'));
+  });
+  drawer.addEventListener('click', function(e){
+    if (e.target.closest('a')) setMenu(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  /* ── scroll reveal ── */
+  var items = document.querySelectorAll('.reveal');
+  if (reduce || !('IntersectionObserver' in window)){
+    items.forEach(function(el){ el.classList.add('is-in'); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); }
+      });
+    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    items.forEach(function(el){ io.observe(el); });
+  }
+
+  /* ── active section in nav ── */
+  var links = Array.prototype.slice.call(document.querySelectorAll('.nav__links a'));
+  var targets = links.map(function(a){ return document.querySelector(a.getAttribute('href')); }).filter(Boolean);
+
+  if ('IntersectionObserver' in window && targets.length){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (!en.isIntersecting) return;
+        links.forEach(function(a){
+          a.classList.toggle('is-active', a.getAttribute('href') === '#' + en.target.id);
+        });
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    targets.forEach(function(t){ spy.observe(t); });
+  }
+})();
+</script>
+
+</body>
+</html>

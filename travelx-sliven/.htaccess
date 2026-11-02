@@ -1,0 +1,22 @@
+# TravelX Sliven — static page, served by LiteSpeed without touching WordPress.
+DirectoryIndex index.html
+
+<IfModule mod_mime.c>
+  AddType image/avif .avif
+  AddType font/woff2 .woff2
+</IfModule>
+
+<IfModule mod_headers.c>
+  # the page itself: always revalidate, so edits show up immediately
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+  # images: a month (rename a file if you replace it and need it to change sooner)
+  <FilesMatch "\.(avif|webp|jpe?g|png|svg)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+  # fonts never change
+  <FilesMatch "\.woff2$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>
