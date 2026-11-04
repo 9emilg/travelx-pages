@@ -89,6 +89,8 @@ for src, out, h in [
     ("partner-devin.png", "partner-devin.webp", 132),
     ("partner-travelradar.png", "partner-travelradar.webp", 132),
     ("partner-pin.png", "partner-pin.webp", 160),                  # shown 64px; source is 87px
+    ("partner-dives.png", "partner-dives.webp", 160),              # white-on-transparent original
+    ("partner-abtta.png", "partner-abtta.webp", 132),
 ]:
     a = Image.open(SRC / src).convert("RGBA").getchannel("A")
     mono = Image.new("RGBA", a.size, (0, 0, 0, 0))
@@ -98,7 +100,7 @@ for src, out, h in [
 
 # ── speakers: transparent cut-outs from the Figma announcement posts ──
 for name in ("yanev", "ivanov", "petrova", "todorov", "draganova",
-             "alexiev", "dimitrov", "zheleva", "sirakov"):
+             "alexiev", "dimitrov", "todorova", "sirakov"):
     im = trim(Image.open(SRC / f"speaker-{name}.png").convert("RGBA"))
     save(resize_w(im, 640), f"speaker-{name}.webp", quality=82, method=6)
 
