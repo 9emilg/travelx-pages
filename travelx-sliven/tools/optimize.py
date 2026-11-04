@@ -97,7 +97,8 @@ for src, out, h in [
          quality=90, method=6)
 
 # ── speakers: transparent cut-outs from the Figma announcement posts ──
-for name in ("yanev", "ivanov", "petrova", "todorov", "draganova"):
+for name in ("yanev", "ivanov", "petrova", "todorov", "draganova",
+             "alexiev", "dimitrov", "zheleva", "sirakov"):
     im = trim(Image.open(SRC / f"speaker-{name}.png").convert("RGBA"))
     save(resize_w(im, 640), f"speaker-{name}.webp", quality=82, method=6)
 
