@@ -87,7 +87,6 @@ for src, out, h in [
     ("partner-seomax.png", "partner-seomax.webp", 132),            # shown 44px
     ("partner-img-connect-card.png", "partner-img-connect-card.webp", 132),
     ("partner-devin.png", "partner-devin.webp", 132),
-    ("partner-travelradar.png", "partner-travelradar.webp", 132),
     ("partner-pin.png", "partner-pin.webp", 160),                  # shown 64px; source is 87px
     ("partner-dives.png", "partner-dives.webp", 160),              # white-on-transparent original
     ("partner-abtta.png", "partner-abtta.webp", 132),
@@ -98,24 +97,23 @@ for src, out, h in [
     save(resize_h(mono.crop(a.point(lambda v: 255 if v > 8 else 0).getbbox()), h), out,
          quality=90, method=6)
 
-# ── partners whose alpha isn't the mark: TravelNews has a white halo round red
-#    letters, SLIVEN PRESS is an opaque blue badge with white/silver lettering.
-#    Ink comes from the darkest channel (<= lo full, >= hi none), so white and
-#    silver drop out and the badge reads as a black block with the type knocked out.
-for src, out, h, lo, hi in [
-    ("partner-travelnews.png", "partner-travelnews.webp", 132, 130, 200),
-    ("partner-sliven-press.png", "partner-sliven-press.webp", 132, 110, 170),
+# ── partners shown in their own colours, as supplied (Nov 2026)
+for src, out, h in [
+    ("partner-travelnews.png", "partner-travelnews.webp", 132),
+    ("partner-sliven-press.png", "partner-sliven-press.webp", 132),
 ]:
-    im = Image.open(SRC / src).convert("RGBA")
-    r, g, b, a = im.split()
-    darkest = ImageChops.darker(ImageChops.darker(r, g), b)
-    ramp = darkest.point(lambda v, lo=lo, hi=hi:
-                         255 if v <= lo else 0 if v >= hi else int(255 * (hi - v) / (hi - lo)))
-    ink = ImageChops.multiply(ramp, a)
-    mono = Image.new("RGBA", im.size, (0, 0, 0, 0))
-    mono.putalpha(ink)
-    save(resize_h(mono.crop(ink.point(lambda v: 255 if v > 8 else 0).getbbox()), h), out,
-         quality=90, method=6)
+    save(resize_h(trim(Image.open(SRC / src).convert("RGBA")), h), out, quality=90, method=6)
+
+# TravelRadar's original is for dark backgrounds: "Travel" and the tagline are
+# white. Those (any unsaturated pixel) go black; cyan and magenta stay.
+tr = Image.open(SRC / "partner-travelradar.png").convert("RGBA")
+px = tr.load()
+for y in range(tr.height):
+    for x in range(tr.width):
+        r, g, b, a = px[x, y]
+        if a and max(r, g, b) - min(r, g, b) < 40:
+            px[x, y] = (0, 0, 0, a)
+save(resize_h(trim(tr), 132), "partner-travelradar.webp", quality=90, method=6)
 
 # ── speakers: transparent cut-outs from the Figma announcement posts ──
 for name in ("yanev", "ivanov", "petrova", "todorov", "draganova",
