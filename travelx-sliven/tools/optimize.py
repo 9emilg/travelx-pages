@@ -98,6 +98,25 @@ for src, out, h in [
     save(resize_h(mono.crop(a.point(lambda v: 255 if v > 8 else 0).getbbox()), h), out,
          quality=90, method=6)
 
+# ── partners whose alpha isn't the mark: TravelNews has a white halo round red
+#    letters, SLIVEN PRESS is an opaque blue badge with white/silver lettering.
+#    Ink comes from the darkest channel (<= lo full, >= hi none), so white and
+#    silver drop out and the badge reads as a black block with the type knocked out.
+for src, out, h, lo, hi in [
+    ("partner-travelnews.png", "partner-travelnews.webp", 132, 130, 200),
+    ("partner-sliven-press.png", "partner-sliven-press.webp", 132, 110, 170),
+]:
+    im = Image.open(SRC / src).convert("RGBA")
+    r, g, b, a = im.split()
+    darkest = ImageChops.darker(ImageChops.darker(r, g), b)
+    ramp = darkest.point(lambda v, lo=lo, hi=hi:
+                         255 if v <= lo else 0 if v >= hi else int(255 * (hi - v) / (hi - lo)))
+    ink = ImageChops.multiply(ramp, a)
+    mono = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    mono.putalpha(ink)
+    save(resize_h(mono.crop(ink.point(lambda v: 255 if v > 8 else 0).getbbox()), h), out,
+         quality=90, method=6)
+
 # ── speakers: transparent cut-outs from the Figma announcement posts ──
 for name in ("yanev", "ivanov", "petrova", "todorov", "draganova",
              "alexiev", "dimitrov", "todorova", "sirakov"):
